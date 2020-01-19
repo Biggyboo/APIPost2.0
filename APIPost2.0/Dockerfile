@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
-COPY ["APIPost2.0/APIPost2.0.csproj", "APIPost2.0/"]
+COPY ["APIPost2.0.csproj", "APIPost2.0/"]
 RUN dotnet restore "APIPost2.0/APIPost2.0.csproj"
 COPY . .
 WORKDIR "/src/APIPost2.0"
