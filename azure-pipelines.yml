@@ -27,12 +27,15 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'apipost'
-        repository: 'latest'
-        command: 'buildAndPush'
+        command: 'build'
         dockerfile: '$(Build.SourcesDirectory)/APIPost2.0/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'apipost'
+        repository: 'latest'
+        command: 'push'
     - task: Docker@2
       inputs:
         containerRegistry: 'apipost'
