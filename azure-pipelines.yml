@@ -22,7 +22,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: 'apipost'
+        containerRegistry: 'api'
         command: 'login'
     - task: Docker@2
       displayName: Build an image
@@ -33,10 +33,10 @@ stages:
           $(tag)
     - task: Docker@2
       inputs:
-        containerRegistry: 'apipost'
+        containerRegistry: 'api'
         repository: 'latest'
         command: 'push'
     - task: Docker@2
       inputs:
-        containerRegistry: 'apipost'
+        containerRegistry: 'api'
         command: 'logout'
