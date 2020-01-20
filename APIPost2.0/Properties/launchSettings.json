@@ -18,7 +18,6 @@
     },
     "APIPost2._0": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "api/posts/0",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
