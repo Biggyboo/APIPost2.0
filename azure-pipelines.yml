@@ -21,9 +21,21 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Connect to docker hub
       inputs:
-        command: build
+        containerRegistry: 'apipost'
+        command: 'login'
+    - task: Docker@2
+      displayName: Build an image and push to docker hub
+      inputs:
+        containerRegistry: 'apipost'
+        repository: 'biggyboo/apipost'
+        command: 'buildAndPush'
         dockerfile: '$(Build.SourcesDirectory)/APIPost2.0/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      displayName: Disconnect to docker hub
+      inputs:
+        containerRegistry: 'apipost'
+        command: 'logout'
