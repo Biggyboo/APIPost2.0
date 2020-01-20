@@ -29,7 +29,7 @@ stages:
       displayName: Build an image and push to docker hub
       inputs:
         containerRegistry: 'apipost'
-        repository: 'biggyboo/apipost:latest'
+        repository: 'biggyboo/apipost'
         command: 'buildAndPush'
         dockerfile: '$(Build.SourcesDirectory)/APIPost2.0/Dockerfile'
         tags: |
